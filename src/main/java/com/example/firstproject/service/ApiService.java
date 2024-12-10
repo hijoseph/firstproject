@@ -30,7 +30,7 @@ public class ApiService {
     // 2. 입력
     public Article create(ArticleForm articleForm) {
         Article article = articleForm.toEntity();
-        if(article .getId() != null){
+        if(article.getId() != null){
             return null;
         }
         return apiRepository.save(article);
