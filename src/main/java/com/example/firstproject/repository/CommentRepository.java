@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    // 특정 게시글의 모든 댓글 조회
+    // 특정 게시글의 모든 댓글 조회 nativeQuery=true시 : 기존 SQL문을 그대도 사용할 수 있다.
     @Query(value="SELECT * FROM comment WHERE article_id = :articleId", nativeQuery = true)
     List<Comment> findByArticleId(Long articleId);
 

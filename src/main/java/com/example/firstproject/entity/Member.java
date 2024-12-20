@@ -4,8 +4,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@ToString
+@NoArgsConstructor
+//@RequiredArgsConstructor
 public class Member {
     @Id
     @GeneratedValue
@@ -20,14 +26,14 @@ public class Member {
         this.password = password;
     }
 
-    public Member(){};
+   // public Member(){};
 
-    @Override
+    /*@Override
     public String toString() {
         return "Member{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
-    }
+    }*/
 }

@@ -66,11 +66,11 @@ class ApiServiceTest {
     @Transactional
     void create_성공_title과_content만_있는_dto_입력() {
         // 1. 예상 데이터
-        String title = "제목4";
-        String content= "내용4";
+        String title = "제목7";
+        String content= "내용7";
 
         ArticleForm dto = new ArticleForm(null, title, content);
-        Article expected = new Article(4L, title, content);
+        Article expected = new Article(7L, title, content);
 
         // 2. 실제 데이터
         Article article = apiService.create(dto);

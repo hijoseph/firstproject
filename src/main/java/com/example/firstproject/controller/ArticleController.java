@@ -1,8 +1,10 @@
 package com.example.firstproject.controller;
 
 import com.example.firstproject.dto.ArticleForm;
+import com.example.firstproject.dto.CommentDto;
 import com.example.firstproject.entity.Article;
 import com.example.firstproject.repository.ArticleRepository;
+import com.example.firstproject.service.CommentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,12 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Controller
 public class ArticleController {
     @Autowired // Repository 등록, 스프링 부트가 미리 생성해 놓은 리파지터리 객체 주입(DI)
     private ArticleRepository articleRepository;
+    @Autowired
+    private CommentService commentService;
     // private ArticleRepository articleRepository = new ArticleRepositoryImpl(){};
 
     // Insert View
@@ -58,8 +63,11 @@ public class ArticleController {
         // B1. id를 조회해 데이터 가져오기 (findById)
         Article articleEntity = articleRepository.findById(id).orElse(null); // 조회한 값이 없으면 null값을 반환
         // JPA의 CrudRepository가 제공하는 메서드로, 특정 엔티티의 id값을 기준으로 데이터를 찾아 Optional타입으로 반환
+        List<CommentDto> commentsDtos = commentService.comments(id);
+
         // B2. 모델에 데이터 등록하기
         model.addAttribute("article", articleEntity);
+        model.addAttribute("commentDtos", commentsDtos); // 댓글 목록 모델에 등록
 
         // B3. 뷰 페이지 반환하기
         model.addAttribute("titleheader", "article show");
