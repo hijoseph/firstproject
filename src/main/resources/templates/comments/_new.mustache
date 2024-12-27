@@ -42,7 +42,7 @@
 
             console.log(comment);
             // fetch() - 비동기 통신을 위한 API
-            const url = "/api/articles/" + comment.articleId + "/comments";
+            const url = "/articles/" + comment.articleId + "/comments";
             fetch(url, {
                 method: "POST", // POST 전송
                 headers: {      // 전송 본문의 데이터 타입(JSON) 정보
