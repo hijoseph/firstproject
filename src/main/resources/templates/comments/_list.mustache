@@ -114,7 +114,7 @@
                article_id: document.querySelector("#edit-comment-article-id").value
            };
            console.log(comment);
-           alert("comment" );
+           alert("comment Id : " + comment.id + " \n article ID : " + comment.article_id);
            // 수정 REST API 호출
            const url = "/api/comments/" + comment.id;
            fetch(url, {
@@ -147,13 +147,10 @@
             btn.addEventListener("click", (event) => {
                 // 이벤트 발생 요소 선택
                 const commentDeleteBtn = event.target;
-
                 const commentId = commentDeleteBtn.getAttribute("data-comment-id");
-                alert("삭제시작");
-                console.log("삭제 버튼 클릭 : "+ commentId +"번 댓글");
-                alert("commentId : "+ commentId)
-                const url = '/api/comments/'+commentId+'';
-                alert("4 url = "+ url +"");
+                const url = "/api/comments/" + commentId;
+               // alert("commentId : " + commentId + " 번 댓글 \n url : " + url);
+
             fetch(url, {
                     method: "DELETE"
                 }).then(response=> {

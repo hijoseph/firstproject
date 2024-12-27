@@ -24,7 +24,6 @@ public class ArticleController {
     private ArticleRepository articleRepository;
     @Autowired
     private CommentService commentService;
-    // private ArticleRepository articleRepository = new ArticleRepositoryImpl(){};
 
     // Insert View
     @GetMapping("/articles/new")
