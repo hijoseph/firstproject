@@ -59,11 +59,17 @@ public class ArticleController {
     public String show(@PathVariable Long id, Model model) {
         log.info("id: " + id); // A2. @PathVariable를 통해 넘겨진 Parameter를 확인
 
+
         // B1. id를 조회해 데이터 가져오기 (findById)
         Article articleEntity = articleRepository.findById(id).orElse(null); // 조회한 값이 없으면 null값을 반환
+        log.info("##########after articleEntity ######");
+        log.info("articleEntity: " + articleEntity);
+
         // JPA의 CrudRepository가 제공하는 메서드로, 특정 엔티티의 id값을 기준으로 데이터를 찾아 Optional타입으로 반환
         List<CommentDto> commentsDtos = commentService.comments(id);
 
+        log.info("##########  after commentsDtos  ##########");
+        log.info("commentsDtos : " + commentsDtos);
         // B2. 모델에 데이터 등록하기
         model.addAttribute("article", articleEntity);
         model.addAttribute("commentDtos", commentsDtos); // 댓글 목록 모델에 등록

@@ -12,8 +12,8 @@
         <div class="card m" id="comments-{{id}}">
             <div class="card-header">
                 {{nickname}}
-                <!--  수정 버튼을 넣을 위치
-                 Button Trigger modal -->
+
+                <!--  수정 버튼을 넣을 위치 Button Trigger modal -->
                 <button type="button"
                         class="btn btn-sm btn-outline-primary"
                         data-bs-toggle="modal"
@@ -23,10 +23,12 @@
                         data-bs-body="{{body}}"
                         data-bs-article-id="{{articleId}}">
                     수정</button>
+
                 <!-- 댓글 삭제 버튼 -->
                 <button type="button"
                         class="btn btn-sm btn-outline-danger comment-delete-btn"
-                        data-comment-id="{{id}}">삭제</button>
+                        data-comment-id="{{id}}">
+                    삭제</button>
             </div>
             <div class="card-body">
                 {{body}}
@@ -43,7 +45,8 @@
                 <button type="button"
                         class="btn-close"
                         data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                        aria-label="Close">
+                </button>
             </div>
             <div class="modal-body">
                 <!--댓글 수정 폼-->
@@ -67,16 +70,10 @@
                 </form>
 
             </div>
-           <!-- <div class="modal-booter">
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">Close</button>
-                <button type="button"
-                        class="btn btn-primary">Save Changes</button>
-            </div>-->
         </div>
     </div>
 </div>
+
 <!--모달 이벤트 처리-->
 <script>
     {

@@ -5,7 +5,9 @@ import com.example.firstproject.entity.Article;
 import com.example.firstproject.entity.Comment;
 import com.example.firstproject.repository.ArticleRepository;
 import com.example.firstproject.repository.CommentRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class CommentService {
     @Autowired // 댓글 Repository 객체 주입
@@ -22,7 +25,7 @@ public class CommentService {
     private ArticleRepository articleRepository;
 
     public List<CommentDto> comments(Long articleId) {
-
+    log.info("In comments");
        /* // 1. 댓글 조회
         List<Comment> comments = commentRepository.findByArticleId(articleId);
 
